@@ -1,10 +1,20 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: rental-ingress
 spec:
-  defaultBackend:
-    service:
-      name: {{ .Release.Name }}-service
-      port:
-        number: 8080
+  rules:
+    - host: {{ .Value.ingress.host.dev}}
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: {{ .Release.Name }}-service-dev
+            servicePort: 8080
+    - host: {{ .Value.ingress.host.prod}}
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: {{ .Release.Name }}-service-prod
+            servicePort: 8080
