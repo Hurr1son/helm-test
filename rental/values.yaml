@@ -1,7 +1,7 @@
 replicaCount: 2
 env: default
 container:
-  image: eu.gcr.io/terraform-319316/rental
+  image: eu.gcr.io/terr-325411/rental
   tag: init
 ingress:
     host: 
