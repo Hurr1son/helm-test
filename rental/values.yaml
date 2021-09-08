@@ -5,5 +5,5 @@ container:
   tag: init
 ingress:
     host: 
-      dev: default1
-      prod: default2
+      dev: dev.project-rental.net
+      prod: dev.project-rental.net
