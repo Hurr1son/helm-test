@@ -10,11 +10,11 @@ spec:
         - path: /
           backend:
             serviceName: {{ .Release.Name }}-service-dev
-            servicePort: 8080
+            servicePort: 80
     - host: {{ .Values.ingress.host.prod}}
       http:
         paths:
         - path: /
           backend:
             serviceName: {{ .Release.Name }}-service-prod
-            servicePort: 8080
+            servicePort: 80
