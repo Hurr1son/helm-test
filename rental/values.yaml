@@ -4,6 +4,4 @@ container:
   image: eu.gcr.io/terr-325411/rental
   tag: init
 ingress:
-    host: 
-      dev: dev.project-rental.net
-      prod: prod.project-rental.net
+    host: project-rental.net
