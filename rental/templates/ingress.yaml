@@ -7,7 +7,6 @@ spec:
     - host: {{ index .Values.ingress.host .Values.env }}
       http:
         paths:
-        - path: /
           backend:
             serviceName: "{{ .Release.Name }}-service-{{ .Values.env}}"
             servicePort: 80
