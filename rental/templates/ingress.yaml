@@ -4,7 +4,7 @@ metadata:
   name: rental-ingress
 spec:
   rules:
-    - host: {{ .Values.env}}.{{ .Values.ingress.host}}
+    - host: {{ pluck .Values.env .Values.ingress.host | first | default .Values.ingress.host.default }}
       http:
         paths:
         - backend:
