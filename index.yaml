@@ -2,10 +2,10 @@ apiVersion: v1
 entries:
   rental:
   - apiVersion: V2
-    created: "2021-09-09T17:24:29.9765229+03:00"
-    digest: 0edfe9a016f144d5f716227d6e9870f8dde165ad3402855bc9fabb2226980179
+    created: "2021-09-09T17:32:04.7265618+03:00"
+    digest: 2c9c2e3a6cbe407b503afb419c0dca1043a549408ea477c843de50ead62b6131
     name: rental
     urls:
     - rental-1.tgz
     version: "1"
-generated: "2021-09-09T17:24:29.9755232+03:00"
+generated: "2021-09-09T17:32:04.7265618+03:00"
