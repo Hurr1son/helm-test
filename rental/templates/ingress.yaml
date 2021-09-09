@@ -4,17 +4,10 @@ metadata:
   name: rental-ingress
 spec:
   rules:
-    - host: {{ .Values.ingress.host.dev}}
+    - host: {{ index .Values.ingress.host .Values.env }}
       http:
         paths:
         - path: /
           backend:
-            serviceName: {{ .Release.Name }}-service-dev
-            servicePort: 80
-    - host: {{ .Values.ingress.host.prod}}
-      http:
-        paths:
-        - path: /
-          backend:
-            serviceName: {{ .Release.Name }}-service-prod
+            serviceName: "{{ .Release.Name }}-service-{{ .Values.env}}"
             servicePort: 80
