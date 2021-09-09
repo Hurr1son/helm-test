@@ -9,5 +9,5 @@ spec:
         paths:
         - path: /
           backend:
-            serviceName: {{ .Release.Name }}-service-dev
+            serviceName: rental-service-dev
             servicePort: 80
