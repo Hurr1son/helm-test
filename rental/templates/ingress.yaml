@@ -9,5 +9,5 @@ spec:
         paths:
           path: /
           backend:
-            serviceName: "{{ .Release.Name }}-service-{{ .Values.env}}"
+            serviceName: {{ .Release.Name }}-service-{{ .Values.env}}
             servicePort: 80
