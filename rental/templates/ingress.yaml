@@ -4,7 +4,7 @@ metadata:
   name: rental-ingress
 spec:
   rules:
-    - host: {{ .Value.env}}.{{ .Value.ingress.host}}
+    - host: {{ .Values.env}}.{{ .Values.ingress.host}}
       http:
         paths:
         - path: /
