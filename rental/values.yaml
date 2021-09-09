@@ -6,4 +6,4 @@ container:
 ingress:
     host: 
       dev: dev.project-rental.net
-      prod: dev.project-rental.net
+      prod: prod.project-rental.net
