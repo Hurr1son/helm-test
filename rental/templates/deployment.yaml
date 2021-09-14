@@ -26,4 +26,5 @@ spec:
                 name: "{{ .Release.Name }}-configmap"
           env: 
           {{- toYaml .Values.container.env | nindent 12}}
+          ports:
             - containerPort: {{ .Values.container.containerPort}}
