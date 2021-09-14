@@ -24,6 +24,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: "{{ .Release.Name }}-configmap"
-          env: {{- toYaml .Values.container.env | nintend 12}}
-          ports: 
+          env: 
+          {{- toYaml .Values.container.env | nintend 12}}
             - containerPort: {{ .Values.container.containerPort}}
