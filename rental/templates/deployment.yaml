@@ -23,4 +23,5 @@ spec:
           image: "{{ .Values.container.image}}-{{ .Values.env}}:{{ .Values.container.tag }}"
           env: 
           {{- toYaml .Values.container.env | nindent 12 }}
-          
+          ports: 
+            - containerPort: {{ .Values.container.containerPort}}
