@@ -24,7 +24,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: "{{ .Release.Name }}-configmap"
-          resources:
-          {{- toYaml .Values.container.resources | nindent 4}}
+          env: {{- toYaml .Values.container.env}}
           ports: 
             - containerPort: {{ .Values.container.containerPort}}
