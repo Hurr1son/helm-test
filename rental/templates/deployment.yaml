@@ -21,6 +21,8 @@ spec:
       containers:
         - name : "{{ .Release.Name }}-web"
           image: "{{ .Values.container.image}}-{{ .Values.env}}:{{ .Values.container.tag }}"
-          resources: {{.Values.container.resources }}
+          resources: 
+            {{- toYaml .Values.container.resources | nindent 12 }}
+            {{- end }}
           env: {{ .Values.container.env }}
           ports: {{ .Values.container.ports }}
