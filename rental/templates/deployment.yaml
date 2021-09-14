@@ -21,6 +21,6 @@ spec:
       containers:
         - name : "{{ .Release.Name }}-web"
           image: "{{ .Values.container.image}}-{{ .Values.env}}:{{ .Values.container.tag }}"
-          resources: {{ .Values.container.resources}}
+          resources: {{.Values.container.resources }}
           env: {{ .Values.container.env }}
           ports: {{ .Values.container.ports }}
