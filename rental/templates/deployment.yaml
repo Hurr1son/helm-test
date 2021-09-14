@@ -21,12 +21,5 @@ spec:
       containers:
         - name : "{{ .Release.Name }}-web"
           image: "{{ .Values.container.image}}-{{ .Values.env}}:{{ .Values.container.tag }}"
-          resources:
-            requests:
-              memory: {{ .Values.container.resources.requests.memory}}
-              cpu: {{ .Values.container.resources.requests.cpu}}
-            limits:
-              memory: {{ .Values.container.resources.limits.memory}}
-              cpu: {{ .Values.container.resources.limits.cpu}}
           env: {{ .Values.container.env }}
           ports: {{ .Values.container.ports }}
