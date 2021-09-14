@@ -21,5 +21,6 @@ spec:
       containers:
         - name : "{{ .Release.Name }}-web"
           image: "{{ .Values.container.image}}-{{ .Values.env}}:{{ .Values.container.tag }}"
-          env: {{ .Values.container.env }}
+          env: 
+          {{- toYaml .Values.container.env | nindent 8 }}
           ports: {{ .Values.container.ports }}
