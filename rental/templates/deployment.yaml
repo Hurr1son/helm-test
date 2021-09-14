@@ -15,34 +15,12 @@ spec:
         project: {{ .Release.Name }} 
     spec:
       volumes:
-      - name: db-info
+      - name: {{ .Values.volumesname}}
         secret:
-          secretName: db-secrets
+          secretName: {{ .Values.secretname}}
       containers:
-        - name : {{ .Release.Name }}-web
-          image: "{{ .Values.container.image}}-{{ .Values.env}}:{{ .Values.container.tag}}"
-          resources: {}
-          env: 
-          - name: DB_HOST
-            valueFrom:
-              secretKeyRef:
-                name: db-secrets
-                key : db_host
-          - name: DB_USER
-            valueFrom:
-              secretKeyRef:
-                name: db-secrets
-                key : db_user
-          - name: DB_PASS
-            valueFrom:
-              secretKeyRef:
-                name: db-secrets
-                key : db_pass
-          - name: DB_NAME
-            valueFrom:
-              secretKeyRef:
-                name: db-secrets
-                key : db_name      
-          ports:
-            - containerPort: 8080
-
+        - name : "{{ .Release.Name }}-web"
+          image: "{{ .Values.container.image}}-{{ .Values.env}}:{{ .Values.container.tag }}"
+          resources: {{ .Values.container.resources}}
+          env: {{ .Values.container.env }}
+          ports: {{ .Values.container.ports }}

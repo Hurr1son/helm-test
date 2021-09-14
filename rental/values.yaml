@@ -1,8 +1,49 @@
 replicaCount: 2
 env: default
+volumesname: db-info
+secretname: db-secrets
 container:
   image: eu.gcr.io/terr-325411/rental
   tag: init
+  env:
+    - name: DB_HOST
+      valueFrom:
+        secretKeyRef:
+          name: db-secrets
+          key : db_host
+    - name: DB_USER
+      valueFrom:
+        secretKeyRef:
+          name: db-secrets
+          key : db_user
+    - name: DB_PASS
+      valueFrom:
+        secretKeyRef:
+          name: db-secrets
+          key : db_pass
+    - name: DB_NAME
+      valueFrom:
+        secretKeyRef:
+          name: db-secrets
+          key : db_name
+  ports:
+    - containerPort: 8080
+  resources:
+    requests:
+        memory: "128Mi"
+        cpu: "250m"
+    limits:
+        memory: "256Mi"
+        cpu: "500m"
+  
+
+
+service:
+  name : listener
+  protocol: TCP
+  port: 80
+  targetPort: 8080
+
 ingress:
     host: 
       default: project-rental.net
