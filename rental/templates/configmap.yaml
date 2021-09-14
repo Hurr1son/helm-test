@@ -4,4 +4,5 @@ metadata:
   name: {{ .Release.Name }}-configmap
   labels:
     project: {{ .Release.Name }}
-data: {{ .Values.env}}
+data: 
+  environment: {{ .Values.env}}
