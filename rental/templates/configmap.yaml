@@ -5,4 +5,4 @@ metadata:
   labels:
     project: {{ .Release.Name }}
 data: 
-  environment: {{ .Values.env}}
+  environment: "{{- toYaml .Values.env}}"
